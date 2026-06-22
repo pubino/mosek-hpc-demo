@@ -11,8 +11,17 @@
 module purge
 module load anaconda3/2024.6
 
-# Ensure mosek package is installed in the user/conda environment (if not already present)
-python3 -c "import mosek" 2>/dev/null || pip install --user mosek
+# Ensure mosek package is installed in the user/conda environment
+if ! python3 -c "import mosek" 2>/dev/null; then
+    echo "================================================================="
+    echo "ERROR: The Python 'mosek' package is not installed."
+    echo "Since compute nodes are firewalled and lack internet access,"
+    echo "please run this command on the LOGIN node before submitting:"
+    echo ""
+    echo "  module load anaconda3/2024.6 && pip install --user mosek"
+    echo "================================================================="
+    exit 1
+fi
 
 # Run python script using srun to execute it on all requested nodes in parallel
 echo "Starting Mosek license verification across cluster nodes..."
