@@ -53,7 +53,7 @@ sbatch job.slurm
 ```
 
 ### How it Works Under the Hood
-1. **Modules**: The script automatically purges conflicting environments and loads Princeton's standard Anaconda environment (`anaconda3/2024.03`).
+1. **Modules**: The script automatically purges conflicting environments and loads Princeton's standard Anaconda environment (`anaconda3/2024.6`).
 2. **Auto-Install**: It checks if the Python `mosek` package is present, and if not, automatically installs it into your user space (`pip install --user mosek`).
 3. **Multi-Node Verification**: The job script requests **2 nodes** (`--nodes=2`) and uses `srun` to execute `solve.py` simultaneously on all allocated compute nodes. This verifies that your personal license file resolves correctly across distributed nodes.
 

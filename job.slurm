@@ -9,7 +9,7 @@
 
 # Purge existing modules and load Anaconda
 module purge
-module load anaconda3/2024.03
+module load anaconda3/2024.6
 
 # Ensure mosek package is installed in the user/conda environment (if not already present)
 python3 -c "import mosek" 2>/dev/null || pip install --user mosek
