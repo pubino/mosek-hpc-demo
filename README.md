@@ -12,15 +12,15 @@ By using the files in this repository, you can confirm that your license is vali
 
 ## 2. Setup & Execution
 
-1. Copy your license file to the default location on the cluster:
+1. Transfer your license file to the default location on the cluster:
    ```bash
-   scp mosek.lic netid@della.princeton.edu:~/mosek/mosek.lic
+   # Run from your local machine:
+   scp mosek.lic <username>@<cluster-address>:~/mosek/mosek.lic
    ```
    *(Or configure `export MSK_LICENSE_FILE=/path/to/your/mosek.lic` in your environment).*
 
-2. SSH to the login node, clone this repository, install the Python package, and submit the job:
+2. On the cluster login node, clone this repository, install the Python package, and submit the job:
    ```bash
-   ssh netid@della.princeton.edu
    git clone https://github.com/pubino/mosek-hpc-demo.git
    cd mosek-hpc-demo
 
@@ -73,7 +73,7 @@ MOSEK license is successfully validated on this node!
 ## Repository Contents
 
 * [solve.py](file:///Users/bino/Downloads/mosek-demo/solve.py) - Minimal Python script solving a small LP with the MOSEK Fusion API and printing verification details.
-* [job.slurm](file:///Users/bino/Downloads/mosek-demo/job.slurm) - Slurm batch script configured for Della.
+* [job.slurm](file:///Users/bino/Downloads/mosek-demo/job.slurm) - Slurm batch script configured for the cluster.
 * [test_solve.py](file:///Users/bino/Downloads/mosek-demo/test_solve.py) - Mocked test suite.
 * [Dockerfile](file:///Users/bino/Downloads/mosek-demo/Dockerfile) - Dockerized testing container environment.
 * [LICENSE.md](file:///Users/bino/Downloads/mosek-demo/LICENSE.md) - MIT License.
