@@ -10,18 +10,27 @@ By using the files in this repository, you can confirm that your license is vali
 2. A valid personal or academic MOSEK license file (`mosek.lic`). 
    * *If you do not have one, you can request an Academic License from [MOSEK's website](https://www.mosek.com/products/academic-licenses/).*
 
-## 2. Setup
+## 2. Setup & Execution
 
-1. Copy your license file to the default `~/mosek/mosek.lic`.  Alternatively, configure the environment variable `export MSK_LICENSE_FILE=/path/to/your/mosek.lic` in your environment or SLURM script.
-2. Clone this repo
-```
-  git clone https://github.com/pubino/mosek-hpc-demo.git
-```
-4. Run the verification
-```
-  cd mosek-hpc-demo
-  sbatch job.slurm
-```
+1. Copy your license file to the default location on the cluster:
+   ```bash
+   scp mosek.lic netid@della.princeton.edu:~/mosek/mosek.lic
+   ```
+   *(Or configure `export MSK_LICENSE_FILE=/path/to/your/mosek.lic` in your environment).*
+
+2. SSH to the login node, clone this repository, install the Python package, and submit the job:
+   ```bash
+   ssh netid@della.princeton.edu
+   git clone https://github.com/pubino/mosek-hpc-demo.git
+   cd mosek-hpc-demo
+
+   # Load Anaconda and install mosek in user space (required before running on firewalled compute nodes)
+   module load anaconda3/2024.6
+   pip install --user mosek
+
+   # Submit the job
+   sbatch job.slurm
+   ```
 
 ## 3. Verification
 
