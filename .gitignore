@@ -1,0 +1,25 @@
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+mosek_env/
+
+# Slurm job logs
+slurm-*.out
+mosek_*.out
+
+# User mosek license file (never commit personal licenses)
+mosek.lic
+mosek/
+
+# OS metadata
+.DS_Store
+Thumbs.db
