@@ -14,8 +14,10 @@ By using the files in this repository, you can confirm that your license is vali
 
 1. Copy your license file to the default `~/mosek/mosek.lic`.  Alternatively, configure the environment variable `export MSK_LICENSE_FILE=/path/to/your/mosek.lic` in your environment or SLURM script.
 2. Clone this repo
-  `git clone https://github.com/pubino/mosek-hpc-demo.git`
-3. Run the verification
+```
+  git clone https://github.com/pubino/mosek-hpc-demo.git
+```
+4. Run the verification
 ```
   cd mosek-hpc-demo
   sbatch job.slurm
